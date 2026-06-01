@@ -192,9 +192,39 @@ Everything is hidden.
             Look deeper.
         </div>
 
-        <a class="download" href="images/image1.jpeg" download="image1.jpeg">
-            DOWNLOAD ARCHIVE
-        </a>
+        <button class="download" onclick="downloadAll()">
+    DOWNLOAD THE ARCHIVE AND LOOK DEEPER
+</button>
+
+<script>
+function downloadAll() {
+
+    const files = [
+        "images/n43uey375.jpeg",
+        "images/d3473dbf.jpeg",
+        "images/hd77343be.jpeg",
+        "images/b4y34t3u4.jpeg",
+        "images/7b65t4r35.jpeg"
+    ];
+
+    files.forEach((file, index) => {
+
+        setTimeout(() => {
+
+            const a = document.createElement("a");
+
+            a.href = file;
+            a.download = file.split('/').pop();
+
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+        }, index * 300);
+
+    });
+}
+</script>
 
         <div class="coordinates">
             SEEN • FELT • REMEMBERED
